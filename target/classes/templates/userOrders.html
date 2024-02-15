@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>My Orders</title>
+</head>
+<body>
+	<div th:replace="@{/header}::header"></div>
+	<h1>My Orders</h1>
+	<div th:replace="@{/fragments/dashboardSidebar}::dashboardSidebar"></div>
+	<div>
+		<table>
+			<tr>
+				<td>ProductImage</td>
+				<td>OrderId</td>
+				<td>ProductName</td>
+				<td>ProductPrice</td>
+				<td>ProductQuantity</td>
+				<td>OrderDate</td>
+				<td>OrderStatus</td>
+				<td>Total Price</td>
+
+			</tr>
+			<tr th:each="item:${orderData}">
+				<td>
+					<a th:href="@{/userOrders/{orderId} (orderId=${item.orderId})}">
+						<img th:src="*{item.productImage}" style="width: 70px">
+					</a>
+				</td>
+				<td th:text="*{item.orderId}"></td>
+				<td>
+					<a th:href="@{/userOrders/{orderId} (orderId=${item.orderId})}" th:text="*{item.productName}"></a>
+				</td>
+				<td th:text="*{item.productPrice}"></td>
+				<td th:text="*{item.productQuantity}"></td>
+				<td th:text="*{item.orderDate}"></td>
+				<td th:text="*{item.orderStatus}"></td>
+				<td th:text="*{item.productQuantity*item.productPrice}"></td>  
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

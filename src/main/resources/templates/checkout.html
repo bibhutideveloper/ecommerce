@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Checkout</title>
+</head>
+<body>
+	<div th:replace="@{/header}::header"></div>
+	<div>
+		<table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Total Price</th>
+			</tr>
+			<tr th:each="item:${cartData}">
+				<td th:text="*{item.product.productName}"></td>
+				<td th:text="*{item.productQuantity}"></td>
+				<td th:text="*{item.productQuantity * item.product.productPrice}"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th colspan="5">Grand Total :</th>
+				<td th:text="*{gTotal}"></td>
+			</tr>
+
+
+		</table>
+		<div>
+			<form th:action="@{/checkout}" method="post" >
+				<input type="text" name="name" placeholder="Enter Name">
+				<input type="email" name="email" placeholder="Enter Email">
+				<input type="text" name="phone" placeholder="Enter Phone NO.">
+				<textarea rows="5" name="address" placeholder="Enter Full Address"></textarea>
+				<br>
+				<br>
+				<button type="submit">Place Order</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

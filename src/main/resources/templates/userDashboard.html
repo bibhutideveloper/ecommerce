@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>user Dashboard</title>
+</head>
+<body>
+	<div th:replace="@{/header}::header"></div>
+	<h1>Dashboard</h1>
+	<div th:replace="@{/fragments/dashboardSidebar}::dashboardSidebar"></div>
+	<h3 th:text="'Hello ' +${userData.userName}"></h3>
+	<div>
+		<img th:src="${userData.userImage}" style="width:70px">
+		<p th:text="${userData.userName}"></p>
+		<p th:text="${userData.userEmail}"></p>
+		<p th:text="${userData.userPhone}"></p>
+		<p th:text="${userData.userAddress}"></p>
+	</div>
+	<form th:action="@{/userUpdate}" method="post">
+	<input type="text" name="userEmail" th:value="${userData.userEmail}" >
+	<button type="submit">Edit Profile</button>
+	</form>
+</body>
+</html>

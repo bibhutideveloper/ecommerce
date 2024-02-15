@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="header">
+		<a th:href="@{/viewProduct}">View Products</a> 
+		<a th:href="@{/addProduct}">Add Products</a> 
+		<a th:href="@{/admin}">Logout</a>
+	</div>
+</body>
+</html>

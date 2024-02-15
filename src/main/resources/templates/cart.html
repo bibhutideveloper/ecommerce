@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cart Page</title>
+</head>
+<body>
+	<div th:replace="@{/header}::header"></div>
+	Welcome to your Carts
+
+	<div>
+		<table class="table">
+			<tr>
+				<th>Image</th>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Category</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Total Price</th>
+				<th>Action</th>
+			</tr>
+
+			<tr th:each="item:${cartData}">
+				<td><img th:src="*{item.product.productImage}"
+					style="width: 70px"></td>
+				<td th:text="*{item.product.productId}"></td>
+				<td th:text="*{item.product.productName}"></td>
+				<td th:text="*{item.product.productCategory}"></td>
+				<td th:text="*{item.product.productPrice}"></td>
+				<td>
+					<form th:action="@{/updateQuantity}" method="post">
+						<input type="hidden" name="cartId" th:value="*{item.cartId}">
+						<button type="submit" name="quantityButton" value="-">-</button>
+						<span th:text="*{item.productQuantity}"></span>
+						<button type="submit" name="quantityButton" value="+">+</button>
+					</form>
+				</td>
+				<td th:text="*{item.productQuantity * item.product.productPrice}"></td>
+				<td>
+					<form th:action="@{/deleteCart}" method="post">
+						<input type="hidden" name="productId" th:value="${item.product.productId}"> 
+						<input type="submit" value="remove">
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="5">Grand Total :</th>
+				<td th:text="*{gTotal}"></td>
+			</tr>
+			<tr>
+				<th><a href="/checkout">Proceed To CheckOut >>></a></th>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

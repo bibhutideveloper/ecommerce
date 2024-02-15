@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Product</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+crossorigin="anonymous"><link>
+</head>
+<body>
+<div th:replace="@{/admin/fragments/header}::header"></div>
+	<h2>Form For New Product</h2>
+
+	<form th:action="@{/addProduct}" th:object="${productData}" method="post">
+	<input type="text"  name="productName" placeholder="Product Name" class="form.control mb-4 col-4">
+	<input type="text"  name="productCategory" placeholder="Product Category" class="form.control mb-4 col-4">
+	<input type="text" name="productPrice" placeholder="Product Price" class ="form.control mb-4 col-4">
+	<input type="number"  name="productStock" placeholder="Poduct Stock" class="form.control mb-4 col-4">
+	<input type="text" name="productDescription" placeholder="product Description" class ="form.control mb-4 col-4">
+	<input type="text" name="productImage" placeholder="Product Image" class="form.control mb-4 col-4">
+	<button type="submit" > Add</button>
+	</form>
+	
+ <p class="alert alert-success" th:if=${param.success}>Product Added successfully</p>
+ <p class="alert alert-danger" th:if=${param.error}>Something went wrong</p>
+	
+</body>
+</html>

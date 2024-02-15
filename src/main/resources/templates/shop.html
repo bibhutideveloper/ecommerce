@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>shop</title>
+</head>
+<body>
+	<div th:replace="@{/header}::header"></div>
+
+	Product Details
+	<div>
+		<table class="table">
+			<tr>
+				<th>Image</th>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Stock</th>
+				<th>Category</th>
+				<th>Description</th>
+				<th>Action</th>
+			</tr>
+
+			<tr th:each="item:${products}">
+				<td><a th:href="@{/singleProduct/{productId} (productId=*{item.productId})}">
+				<img th:src="*{item.productImage}" style="width: 70px"></a>
+				</td>
+				<td th:text="*{item.productId}"></td>
+				<td ><a th:href="@{/singleProduct/{productId} (productId=*{item.productId})}"  th:text="*{item.productName}">
+				</a></td>
+				<td th:text="*{item.productPrice}"></td>
+				 <td th:text="*{item.productStock}"></td>
+				<td th:text="*{item.productCategory}"></td>
+				<td th:text="*{item.productDescription}"></td> 
+				 <td>
+					<form th:action="@{/addToCart}" th:object="${cartData}" method="post" >
+					<input type="hidden" name="productId" th:value="${item.productId}">
+					<input type="submit" value="addToCart">
+					</form>
+				
+				<td>
+				<a href=""> Buy now</a></td> 
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

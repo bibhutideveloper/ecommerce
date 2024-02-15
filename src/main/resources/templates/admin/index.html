@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin </title>
+</head>
+<body>
+
+<section>
+<form th:action="@{/admin}" th:object="${admin}" method="post"> 
+            <div class="heading heading-center">
+                <h1>Admin Login</h1>
+                <hr>
+            </div>
+            <input type="email" name="email" th:field="${admin.email}" id="email" placeholder="Enter Email">
+            <input type="password" name="password"  th:field="${admin.password}" id="password" placeholder="Enter password">
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a>create here</a></p>
+        </form></section>
+</body>
+</html>
