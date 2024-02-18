@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="header">
 <head>
 <meta charset="ISO-8859-1">
 <title>Header</title>
+<link rel="stylesheet" th:href="@{/css/header.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-<div th:fragment="header">
-     <a th:href="@{/}">Home</a> 
-		<a th:href="@{/shop}">Shop</a> 
-		<a th:href="@{/userDashboard}" th:if="${session.userLoginData!=null}" th:text="${session.userLoginData.userName}"></a>
-		<a th:href="@{/login}" th:if="${session.userLoginData==null}">Login</a>
-		<a th:href="@{/userLogout}" th:if="${session.userLoginData!=null}">Logout</a>
-		<a th:href="@{/cart}">Cart</a>
-</div>
+<header>
+	<div class="logo">
+		<h1>E-comm.</h1>
+	</div>
+	 <div class="navbar">
+		<ul>
+     		<li><a th:href="@{/}">Home</a></li> 
+			<li><a th:href="@{/shop}">Shop</a></li> 
+			<li><a th:href="@{/userDashboard}" th:if="${session.userLoginData!=null}" 
+				   th:text="${session.userLoginData.userName}"></a></li>
+			<li><a th:href="@{/login}" th:if="${session.userLoginData==null}">Login</a></li>
+			<li><a th:href="@{/userLogout}" th:if="${session.userLoginData!=null}">Logout</a></li>
+			<li><a th:href="@{/cart}">Cart</a></li> 
+		</ul>
+	 </div>
+</header>
 </body>
 </html>
