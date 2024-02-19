@@ -23,7 +23,7 @@
 	align-items: center;
 	padding: 20px;
 	backdrop-filter: blur(20px);
-	border: 1px solid var(--primary-color);
+	box-shadow: var(--shadow);
 	border-radius: 5px;
 }
 .login .form-container{
