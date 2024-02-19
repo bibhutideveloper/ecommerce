@@ -3,15 +3,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login Page</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/form.css}" />
 </head>
 <body>
-<div th:replace="@{/header}::header"></div>
-<form th:action="@{/login}" th:object="${user}" method="post">
-<input type="email" name="userEmail" placeholder="Enter Email">
-<input type="password" name="userPassword" placeholder="Enter password">
-<button type="submit">Sign In</button>
-<span>If Not Register <a th:href="@{/signUp}">SignUp Here</a></span>
+	<div th:replace="@{/header}::header"></div>
 
-</form>
+	<div class="login">
+		<div class="form-container">
+			<h2 class="form-title">Login</h2>
+			<form th:action="@{/login}" th:object="${user}" method="post">
+				<input type="email" name="userEmail" placeholder="Enter Email">
+				<input type="password" name="userPassword"
+					placeholder="Enter password">
+				<button type="submit" class="btn">Sign In</button>
+				<span>If Not Register <a th:href="@{/signUp}">SignUp Here</a></span>
+			</form>
+		</div>
+	</div>
+
 </body>
 </html>

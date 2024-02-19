@@ -1,0 +1,27 @@
+.single-container{
+	min-height: 100vh;
+}
+.single-product{
+	width: 1200px;
+	margin: 50px auto;
+	display: flex;
+	gap: 30px;
+}
+.single-image{
+	width: 50%;
+}
+.single-image img{
+	width: 100%;
+	height: 400px;
+	object-fit: contain;
+}
+.single-data{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.action-btn{
+	display: flex;
+	gap: 30px;
+}

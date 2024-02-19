@@ -29,12 +29,18 @@ ul{
 
 /* buttons */
 .btn{
-	padding: 3px 10px;
+	height: 40px;
+	padding: 0 10px;
 	border-radius: 5px;
 	border: 1px solid var(--primary-color);
 	background: var(--primary-color);
 	color: white;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 400 !important;
+	font-size: 15px;
 }
 .btn:hover{
 	border: 1px solid var(--primary-color);

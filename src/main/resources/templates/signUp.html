@@ -2,21 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>User Sign Up page</title>
+<title>User Signup</title>
+<link rel="stylesheet" th:href="@{/css/form.css}" />
 </head>
 <body>
 	<div th:replace="@{/header}::header"></div>
-	<form th:action="@{/signUp}" th:object="${user}" method="post">
-		<h1>Sign Up Form</h1>
-		<input type="text" name="userName" placeholder="Enter Name"><br>
-		<input type="email" name="userEmail" placeholder="Enter Email"><br>
-		<input type="password" name="userPassword" placeholder="Enter password"> <br>
-		<input type="password" name="userConfirmPassword" placeholder="Enter password again"><br>
-		<input type="text" name="userPhone" placeholder="Enter phone No."><br>
-		<textarea rows="5" name="userAddress" placeholder="Enter address"></textarea><br>
-		<textarea rows="5" name="userImage" placeholder="Enter Image url"></textarea><br>
-		<button type="submit">SignUp</button>
-		<span>Already Registered,<a th:href="@{/login}">Login Here</a></span>
-	</form>
+
+
+
+
+	<div class="signup">
+		<div class="form-container">
+			<h2 class="form-title">Signup</h2>
+			<form th:action="@{/signUp}" th:object="${user}" method="post">
+				<input type="text" name="userName" placeholder="Enter Name">
+				<input type="email" name="userEmail" placeholder="Enter Email">
+				<input type="password" name="userPassword" placeholder="Enter password">
+				<input type="password" name="userConfirmPassword" placeholder="Enter password again">
+				<input class="full-width" type="text" name="userPhone" placeholder="Enter phone No.">
+				<textarea rows="5" name="userAddress" placeholder="Enter address"></textarea>
+				<textarea rows="5" name="userImage" placeholder="Enter Image url"></textarea>
+				<button type="submit" class="btn full-width">SignUp</button>
+				<span>Already Registered,<a th:href="@{/login}">Login Here</a></span>
+			</form>
+		</div>
+	</div>
+
 </body>
 </html>

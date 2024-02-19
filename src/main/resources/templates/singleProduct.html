@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
 <title>single Product</title>
+<link rel="stylesheet" th:href="@{/css/singleProduct.css}" />
 </head>
 <body>
 	<div th:replace="@{/header}::header"></div>
 
-	Product Details
-	<div>
-		<p th:text="${product}"></p>
-		<form th:action="@{/addToCart}" th:object="${cartData}" method="post">
-		<input type="hidden" name="productId" th:value="${product.productId}">
-		<input type="submit" value="addToCart">
-		</form>
-		<a href=""> Buy now</a>
+	<div class="single-container">
+		<div class="single-product">
+			<div class="single-image">
+				<img th:src="${product.productImage}">
+			</div>
+			<div class="single-data">
+			   	<p style="color:var( --txt-light-color)">Home/ Shop</p>
+			   	<p th:text="${product.productCategory}"></p>
+				<h1 th:text="${product.productName}"></h1>
+				<h4 th:text="'₹  ' + ${product.productPrice}"></h4>
+				<p th:text="${product.productDescription}"></p>
+				
+				<div class="action-btn">
+					<form th:action="@{/addToCart}" th:object="${cartData}" method="post">
+						<input type="hidden" name="productId" th:value="${product.productId}">
+						<input type="submit" value="Add To Cart +" class="btn">
+					</form>
+					<a href="" class="btn"> Buy now</a>
+				</div>
+				
+			</div>
+		</div>
 	</div>
+
+	
+
 </body>
 </html>

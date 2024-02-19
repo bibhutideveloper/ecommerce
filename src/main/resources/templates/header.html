@@ -15,10 +15,13 @@
 		<ul>
      		<li><a th:href="@{/}">Home</a></li> 
 			<li><a th:href="@{/shop}">Shop</a></li> 
-			<li><a th:href="@{/userDashboard}" th:if="${session.userLoginData!=null}" 
-				   th:text="${session.userLoginData.userName}"></a></li>
-			<li><a th:href="@{/login}" th:if="${session.userLoginData==null}">Login</a></li>
-			<li><a th:href="@{/userLogout}" th:if="${session.userLoginData!=null}">Logout</a></li>
+			<li th:if="${session.userLoginData!=null}">
+				<a th:href="@{/userDashboard}" th:text="${session.userLoginData.userName}"></a>
+			</li>
+			<li>
+				<a th:href="@{/login}" th:if="${session.userLoginData==null}">Login</a>
+				<a th:href="@{/userLogout}" th:if="${session.userLoginData!=null}">Logout</a>
+			</li>
 			<li><a th:href="@{/cart}">Cart</a></li> 
 		</ul>
 	 </div>
