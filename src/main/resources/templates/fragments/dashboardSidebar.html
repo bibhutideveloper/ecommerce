@@ -5,9 +5,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div th:fragment="dashboardSidebar">
+	<div class="left-menu" th:fragment="dashboardSidebar">
 		<a th:href="@{/userDashboard}">Dashboard</a>
-		<a th:href="@{/userOrders}">My Orders</a>
+		<a th:href="@{/userOrders}">Orders</a>
+		<a href="#">Wishlist</a>
+		<a href="#">Log Out</a>
 	</div>
 </body>
 </html>

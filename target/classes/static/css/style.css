@@ -30,6 +30,7 @@ ul{
 /* buttons */
 .btn{
 	height: 40px;
+	width: max-content;
 	padding: 0 10px;
 	border-radius: 5px;
 	border: 1px solid var(--primary-color);
@@ -47,7 +48,20 @@ ul{
 	color: var(--primary-color);
 	background: white;
 }
-
+.btn-second{
+	border: 0;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin-top: 20px;
+	cursor: pointer;
+	color: blue;
+}
+table{
+	text-align: center;
+}
+th,td{
+	border-bottom: 1px solid var(--border-clr);
+}
 
 
 

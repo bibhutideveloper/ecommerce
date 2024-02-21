@@ -3,22 +3,32 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>user Dashboard</title>
+<link rel="stylesheet" th:href="@{/css/userDashboard.css}" />
 </head>
 <body>
 	<div th:replace="@{/header}::header"></div>
-	<h1>Dashboard</h1>
-	<div th:replace="@{/fragments/dashboardSidebar}::dashboardSidebar"></div>
-	<h3 th:text="'Hello ' +${userData.userName}"></h3>
-	<div>
-		<img th:src="${userData.userImage}" style="width:70px">
-		<p th:text="${userData.userName}"></p>
-		<p th:text="${userData.userEmail}"></p>
-		<p th:text="${userData.userPhone}"></p>
-		<p th:text="${userData.userAddress}"></p>
+	
+	<div class="dashboard">	
+		<div th:replace="@{/fragments/dashboardSidebar}::dashboardSidebar"></div>
+		<div class="right-content">
+			<h2>Dashboard</h2>
+			<hr>
+			<div class="content">
+				<h2 th:text="'Hello, ' +${userData.userName}"></h2>
+				<p th:text="${userData.userEmail}"></p>
+				<p th:text="${userData.userPhone}"></p>
+				<p th:text="${userData.userAddress}"></p>
+				<img th:src="${userData.userImage}" class="userImage">
+				
+				<form th:action="@{/userUpdate}" method="post">
+					<input type="hidden" name="userEmail" th:value="${userData.userEmail}" >
+					<button type="submit" class="btn-second">Edit Profile</button>
+				</form>
+				
+			</div>
+		</div>
 	</div>
-	<form th:action="@{/userUpdate}" method="post">
-	<input type="text" name="userEmail" th:value="${userData.userEmail}" >
-	<button type="submit">Edit Profile</button>
-	</form>
+	
+	<div th:replace="@{/footer}::footer"></div>
 </body>
 </html>

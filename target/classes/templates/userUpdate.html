@@ -3,21 +3,34 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>update user</title>
+<link rel="stylesheet" th:href="@{/css/userDashboard.css}" />
+<link rel="stylesheet" th:href="@{/css/form.css}" />
 </head>
 <body>
-<div th:replace="@{/header}::header"></div>
-	<form th:action="@{/signUp}"  method="post">
-		<h1>Update User</h1>
-		<input type="hidden" name="userId" th:value="${userData.userId}"><br>
-		<input type="text" name="userName" th:value="${userData.userName}"placeholder="Enter Name"><br>
-		<input type="email" name="userEmail" th:value="${userData.userEmail}" placeholder="Enter Email"><br>
-		<input type="password" name="userPassword" th:value="${userData.userPassword}" placeholder="Enter password"> <br>
-		<input type="password" name="userConfirmPassword" th:value="${userData.userPassword}" placeholder="Enter password again"><br>
-		<input type="text" name="userPhone" th:value="${userData.userPhone}" placeholder="Enter phone No."><br>
-		<textarea rows="5" name="userAddress" th:text="${userData.userAddress}" placeholder="Enter address"></textarea><br>
-		<textarea rows="5" name="userImage" th:text="${userData.userImage}" placeholder="Enter Image url"></textarea>
-		<img th:src="${userData.userImage}" style="width:70px"><br>
-		<button type="submit">update</button>
-	</form>
+	<div th:replace="@{/header}::header"></div>
+	
+	<div class="dashboard">	
+		<div th:replace="@{/fragments/dashboardSidebar}::dashboardSidebar"></div>
+		<div class="right-content">
+			<h2>Update User</h2>
+			<hr>
+			<div class="content">
+				<form th:action="@{/signUp}"  method="post">
+					<input type="hidden" name="userId" th:value="${userData.userId}">
+					<input type="text" name="userName" th:value="${userData.userName}"placeholder="Enter Name">
+					<input type="email" name="userEmail" th:value="${userData.userEmail}" placeholder="Enter Email">
+					<input type="password" name="userPassword" th:value="${userData.userPassword}" placeholder="Enter password"> 
+					<input type="text" name="userPhone" th:value="${userData.userPhone}" placeholder="Enter phone No.">
+					<textarea rows="5" name="userAddress" th:text="${userData.userAddress}" placeholder="Enter address"></textarea>
+					<textarea rows="5" name="userImage" th:text="${userData.userImage}" placeholder="Enter Image url"></textarea>
+					<button type="submit" class="btn">update</button>
+					<img th:src="${userData.userImage}">
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div th:replace="@{/footer}::footer"></div>
 </body>
 </html>

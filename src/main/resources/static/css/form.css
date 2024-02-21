@@ -39,7 +39,8 @@ form{
 	padding: 10px;
 	width: 100%;
 }
-.signup form{
+.signup form,
+.content form{
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);	
 }
@@ -53,11 +54,16 @@ input[type=email],
 input[type=password],
 input[type=submit],
 textarea{
-	padding: 10px 0;
+	padding: 10px 5px;
 	border-radius: 3px;
 	outline: 0;
 	border: 1px solid var(--border-clr);
 }
 form span{
 	font-size: 14px;
+}
+form img{
+	height: 100px;
+	width: 100px;
+	object-fit: cover;
 }
