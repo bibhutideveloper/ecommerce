@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
 <title>Cart Page</title>
+<link rel="stylesheet" th:href="@{/css/cart.css}" />
+
 </head>
 <body>
 	<div th:replace="@{/header}::header"></div>
-	Welcome to your Carts
-
-	<div>
-		<table class="table">
+		
+	<div class="cart" th:if="${!cartData.empty}">
+		<h2>My Cart</h2>
+		<table class="table" cellspacing=0>
 			<tr>
 				<th>Image</th>
 				<th>Id</th>
@@ -29,30 +30,43 @@
 				<td th:text="*{item.product.productCategory}"></td>
 				<td th:text="*{item.product.productPrice}"></td>
 				<td>
-					<form th:action="@{/updateQuantity}" method="post">
+					<form th:action="@{/updateQuantity}" method="post" class="quantityBtns">
 						<input type="hidden" name="cartId" th:value="*{item.cartId}">
-						<button type="submit" name="quantityButton" value="-">-</button>
+						<button class="btn-sm" type="submit" name="quantityButton" value="-">-</button>
 						<span th:text="*{item.productQuantity}"></span>
-						<button type="submit" name="quantityButton" value="+">+</button>
+						<button class="btn-sm" type="submit" name="quantityButton" value="+">+</button>
 					</form>
 				</td>
 				<td th:text="*{item.productQuantity * item.product.productPrice}"></td>
 				<td>
 					<form th:action="@{/deleteCart}" method="post">
 						<input type="hidden" name="productId" th:value="${item.product.productId}"> 
-						<input type="submit" value="remove">
+						<button class="btn-sm danger">
+							<i class="fa-regular fa-trash-can"></i>
+						</button>
 					</form>
 				</td>
 			</tr>
 			<tr>
-				<th colspan="5">Grand Total :</th>
-				<td th:text="*{gTotal}"></td>
+				<td colspan="6" class="gtRow">Grand Total :</td>
+				<td  th:text="*{gTotal}" class="gtRow"></td>
+				<td></td>
 			</tr>
 			<tr>
-				<th><a href="/checkout">Proceed To CheckOut >>></a></th>
+				<td colspan="5"></td>
+				<td colspan="8" class="gtRow">
+					<a href="/checkout" class="btn">Proceed To CheckOut >>></a>
+				</td>
 			</tr>
-		</table>
+		</table>	
+		
 	</div>
+	
+	<div class="cart" th:if="${cartData.empty}">
+		<img class="noCart" alt="" src="https://static.vecteezy.com/system/resources/previews/023/253/009/non_2x/empty-cart-solid-icons-simple-stock-illustration-stock-vector.jpg">
+	</div>
+
+	<div th:replace="@{/footer}::footer"></div>
 
 </body>
 </html>

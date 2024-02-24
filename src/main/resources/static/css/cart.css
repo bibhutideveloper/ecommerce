@@ -1,0 +1,32 @@
+.cart{
+	max-width: 1200px;
+	margin: auto;
+	padding: 30px 0 50px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: calc(100vh - 240px);
+}
+.cart>h2{
+	text-align: center;
+	padding-bottom: 20px;
+	color: var(--primary-color);
+}
+.cart table{
+	width: 100%;
+	box-shadow: var(--shadow);
+	border-radius: 5px;
+}
+.gtRow{
+	text-align: right;
+	font-size: 26px;
+	padding: 10px 0;
+	font-weight: 600;
+}
+.noCart{
+	height: 500px;
+	margin: auto;
+}
+.quantityBtns span{
+	padding: 0 15px;
+}

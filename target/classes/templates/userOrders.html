@@ -16,13 +16,13 @@
 			<div class="content">
 				<table cellspacing=0>
 					<tr>
-						<td>Image</td>
-						<td>Name</td>
-						<td>Price</td>
-						<td>Quantity</td>
-						<td>OrderDate</td>
-						<td>Status</td>
-						<td>Total Price</td>
+						<th>Image</th>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>OrderDate</th>
+						<th>Status</th>
+						<th>Total Price</th>
 						<th>Action</th>
 					</tr>
 					<tr th:each="item:${orderData}">
@@ -39,7 +39,7 @@
 						<td th:text="*{item.orderDate}"></td>
 						<td th:text="*{item.orderStatus}"></td>
 						<td th:text="*{item.productQuantity*item.productPrice}"></td>  
-						<td><a href="#">Cancel</a></td>
+						<td><a href="#" class="danger">cancel</a></td>
 					</tr>
 				</table>		
 			</div>

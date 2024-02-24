@@ -3,30 +3,30 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Checkout</title>
+<link rel="stylesheet" th:href="@{/css/checkout.css}" />
+<link rel="stylesheet" th:href="@{/css/form.css}" />
 </head>
 <body>
 	<div th:replace="@{/header}::header"></div>
-	<div>
-		<table class="table">
-			<tr>
-				<th>Name</th>
-				<th>Quantity</th>
-				<th>Total Price</th>
-			</tr>
-			<tr th:each="item:${cartData}">
-				<td th:text="*{item.product.productName}"></td>
-				<td th:text="*{item.productQuantity}"></td>
-				<td th:text="*{item.productQuantity * item.product.productPrice}"></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th colspan="5">Grand Total :</th>
-				<td th:text="*{gTotal}"></td>
-			</tr>
-
-
-		</table>
-		<div>
+	
+	<h1 style="text-align:center; padding:30px; color:var(--primary-color)">Checkout</h1>
+	
+	<div class="checkout">		
+		<div class="checkoutData">
+			<div th:each="item:${cartData}">
+				<p>
+					<span th:text="*{item.product.productName}"></span>
+					<span th:text="'x' + *{item.productQuantity}" class="qty"></span>
+				</p>
+				<span th:text="*{item.productQuantity * item.product.productPrice}"></span>
+			</div>
+			<div class="checkout-grand">
+				<p>Grand Total</p>
+				<p th:text="*{gTotal}"></p>
+			</div>
+		</div>
+		
+		<div class="checkoutUser">
 			<form th:action="@{/checkout}" method="post" >
 				<input type="text" name="name" placeholder="Enter Name">
 				<input type="email" name="email" placeholder="Enter Email">
@@ -34,9 +34,11 @@
 				<textarea rows="5" name="address" placeholder="Enter Full Address"></textarea>
 				<br>
 				<br>
-				<button type="submit">Place Order</button>
+				<button type="submit" class="btn">Place Order</button>
 			</form>
 		</div>
 	</div>
+	
+	<div th:replace="@{/footer}::footer"></div>
 </body>
 </html>
