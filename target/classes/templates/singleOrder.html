@@ -3,10 +3,63 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Order Details</title>
+<link rel="stylesheet" th:href="@{/css/orders.css}" />
 </head>
 <body>
-Single Order
-<p th:text="${order}"></p>
+	<div th:replace="@{/header}::header"></div>
+	
+	<h2 class="title">Order Details</h2>
+	<div class="singleOrder">
+		<div class="orderImage">
+			<img alt="" th:src="${order.productImage}">
+		</div>
+		<div class="orderData">
+			<p class="orderId" th:text="'# ' + ${order.orderId}"></p>
+			<p class="orderDate" th:text="${order.orderDate}"></p>
+			<p class="productName" th:text="${order.productName}"></p>
+			<p class="productCtg" th:text="${order.productCategory}"></p>
+			<p class="price" th:text="'Price: '+ ${order.productPrice}"></p>
+			<p class="qty" th:text="'Quantity: '+ ${order.productQuantity}"></p>
+			<p class="qty" th:text="'Total: ' + ${order.productPrice} * ${order.productQuantity}"></p>
+		</div>
+		<div class="status">
+			<p th:if="${order.orderStatus}==pending" class="pending" th:text="${order.orderStatus}"></p>
+			<p th:if="${order.orderStatus}==accepted" class="accepted" th:text="${order.orderStatus}"></p>
+			<p th:if="${order.orderStatus}==rejected" class="rejected" th:text="${order.orderStatus}"></p>
+			<p th:if="${order.orderStatus}==cancelled" class="cancelled" th:text="${order.orderStatus}"></p>
+			
+			<a th:unless="${order.orderStatus}==cancelled or ${order.orderStatus}==rejected" href="#" class="btn-second">cancel</a>
+			<a th:unless="${order.orderStatus}==cancelled or ${order.orderStatus}==rejected" href="#" class="btn-second">View Bill</a>		
+		</div>
+		
+	</div>
+	<div class="userData">
+		<table>
+			<tr><th><h2>Shipping Details</h2></th></tr>
+			<tr>
+				<th>Name</th>
+				<td><p class="userName" th:text="${order.orderUserName}"></p></td>
+			</tr>
+			<tr>
+				<th>Phone</th>
+				<td><p class="phone" th:text="${order.orderUserPhone}"></p></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><p class="email" th:text="${order.orderUserEmail}"></p></td>
+			</tr>
+			<tr>
+				<th>Address</th>
+				<td><p class="address" th:text="${order.orderAddress}"></p></td>
+			</tr>
+			<tr>
+				<th>Payment Mode</th>
+				<td><p class="address" th:text="${order.paymentMode}"></p></td>
+			</tr>
+		</table>		
+	</div>
 
+	<div th:replace="@{/footer}::footer"></div>
+	
 </body>
 </html>

@@ -82,7 +82,19 @@ th{
 	padding: 10px 0;
 }
 
-
+.accepted{
+	background: lightgreen;;
+	color: white;
+}
+.pending{
+	background: orange;
+	color: white;
+}
+.rejected,
+.cancelled{
+	background: red;
+	color: white;
+}
 
 
 

@@ -37,9 +37,14 @@
 						<td th:text="*{item.productPrice}"></td>
 						<td th:text="*{item.productQuantity}"></td>
 						<td th:text="*{item.orderDate}"></td>
-						<td th:text="*{item.orderStatus}"></td>
+						<td>
+							<p th:if="*{item.orderStatus}==pending" class="pending" th:text="${item.orderStatus}"></p>
+							<p th:if="*{item.orderStatus}==accepted" class="accepted" th:text="${item.orderStatus}"></p>
+							<p th:if="*{item.orderStatus}==rejected" class="rejected" th:text="${item.orderStatus}"></p>
+							<p th:if="*{item.orderStatus}==cancelled" class="cancelled" th:text="${item.orderStatus}"></p>
+						</td>
 						<td th:text="*{item.productQuantity*item.productPrice}"></td>  
-						<td><a href="#" class="danger">cancel</a></td>
+						<td><a th:unless="${item.orderStatus}==cancelled or ${item.orderStatus}==rejected" href="#" class="danger">cancel</a></td>
 					</tr>
 				</table>		
 			</div>

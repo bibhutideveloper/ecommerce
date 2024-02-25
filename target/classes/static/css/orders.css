@@ -1,0 +1,66 @@
+.singleOrder,
+.userData{
+	max-width: 900px;
+	margin: auto;
+	padding: 30px 0;
+	display: flex;
+	justify-content: space-between;
+}
+.title{
+	max-width: 900px;
+	margin: auto;
+	margin-top: 30px;
+}
+.orderImage{
+	height: 200px;
+	width: 200px;
+	border: 1px solid var(--border-clr);
+	border-radius: 5px;
+}
+.orderImage img{
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+.orderData{
+}
+.orderId{
+	color: var(--txt-light-color);
+}
+.productName{
+	font-size: 25px;
+	font-weight: 500;
+}
+.userData{
+	flex-direction: column;
+	gap: 5px;
+	border-top: 1px solid  var(--border-clr);
+}
+table{
+	text-align: left !important;
+	width: max-content !important;
+}
+th,td{
+	border: 0 !important;
+	background: white !important;
+	color: black !important;
+	height: 10px !important;
+}
+.status{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+.status a{
+	background: #efefef;
+}
+.status p{
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+.status a,
+.status p{
+	width: 90px;
+	text-align: center;
+	font-size: 14px;
+}
