@@ -72,6 +72,12 @@ ul{
 
 table{
 	text-align: center;
+	border: 1px solid var(--border-clr);
+}
+table img{
+	height: 70px;
+	width: 70px;
+	object-fit: contain;
 }
 th,td{
 	border-bottom: 1px solid var(--border-clr);
@@ -95,15 +101,6 @@ th{
 	background: red;
 	color: white;
 }
-
-
-
-
-
-
-
-
-
 
 
 

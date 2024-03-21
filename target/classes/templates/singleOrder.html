@@ -15,7 +15,7 @@
 		</div>
 		<div class="orderData">
 			<p class="orderId" th:text="'# ' + ${order.orderId}"></p>
-			<p class="orderDate" th:text="${order.orderDate}"></p>
+			<p class="orderDate" th:text="${#temporals.format(order.orderDate, 'dd-MM-yyyy')}"></p>
 			<p class="productName" th:text="${order.productName}"></p>
 			<p class="productCtg" th:text="${order.productCategory}"></p>
 			<p class="price" th:text="'Price: '+ ${order.productPrice}"></p>

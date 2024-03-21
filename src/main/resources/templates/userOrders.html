@@ -28,7 +28,7 @@
 					<tr th:each="item:${orderData}">
 						<td>
 							<a th:href="@{/userOrders/{orderId} (orderId=${item.orderId})}">
-								<img th:src="*{item.productImage}" style="width: 70px">
+								<img th:src="*{item.productImage}">
 							</a>
 						</td>
 						<td>

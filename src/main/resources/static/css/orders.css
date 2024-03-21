@@ -39,6 +39,7 @@
 table{
 	text-align: left !important;
 	width: max-content !important;
+	border: 0 !important;
 }
 th,td{
 	border: 0 !important;
